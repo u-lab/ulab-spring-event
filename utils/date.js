@@ -5,9 +5,13 @@ import { isObject } from '@/utils/object'
  * Date型に変換
  *
  * @param {*} v
- * @returns Boolean
+ * @returns { Boolean }
  */
 export const convertToDate = (v) => {
+  if (!v) {
+    return null
+  }
+
   if (isFirebaseDate(v)) {
     return new Date(v.seconds * 1000)
   }
