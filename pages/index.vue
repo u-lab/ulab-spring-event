@@ -1,6 +1,6 @@
 <template>
   <div>
-    <index-template :events="events" />
+    <index-template :events="events" :intro="intro" />
   </div>
 </template>
 
@@ -14,11 +14,16 @@ export default {
 
   async fetch({ store }) {
     await store.dispatch('events/fetchEvents')
+    await store.dispatch('intro/fetchIntro')
   },
 
   computed: {
     events() {
       return this.$store.getters['events/events']
+    },
+
+    intro() {
+      return this.$store.getters['intro/intro']
     }
   }
 }
