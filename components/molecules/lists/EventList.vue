@@ -10,6 +10,10 @@
         <a v-if="href" :href="href">リンクはこちら</a>
         <p v-else class="mb-0">リンクは準備中です</p>
       </div>
+
+      <div v-if="description" class="text-center">
+        <p class="mb-0" v-text="description" />
+      </div>
     </div>
   </div>
 </template>
@@ -19,15 +23,21 @@ import { formatDate } from '@/utils/date'
 
 export default {
   props: {
+    content: {
+      type: String,
+      required: true
+    },
+
     date: {
       type: Date,
       required: false,
       default: undefined
     },
 
-    content: {
+    description: {
       type: String,
-      required: true
+      required: false,
+      default: undefined
     },
 
     href: {
