@@ -4,6 +4,7 @@
       <event-list
         :content="event.title"
         :date="convertToDate(event.date)"
+        :description="event.description"
         :href="event.link"
       />
     </div>
