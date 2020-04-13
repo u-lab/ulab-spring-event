@@ -7,7 +7,9 @@
       </p>
 
       <div class="text-center">
-        <a v-if="href" :href="href">リンクはこちら</a>
+        <a v-if="href" :href="href" target="_blank" rel="noopener">
+          リンクはこちら
+        </a>
         <p v-else class="mb-0">リンクは準備中です</p>
       </div>
 

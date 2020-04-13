@@ -3,17 +3,26 @@
     <div class="inner">
       <main-field class="mb-2" />
 
-      <events-field :events="events" />
+      <events-field :events="events" class="mb-2" />
+
+      <circle-intro-field
+        v-if="intro.release"
+        :description="intro.description"
+        :href="intro.link"
+        :title="intro.title"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import CircleIntroField from '@/components/organisms/fields/CircleIntroField'
 import EventsField from '@/components/organisms/fields/EventsField'
 import MainField from '@/components/organisms/fields/MainField'
 
 export default {
   components: {
+    CircleIntroField,
     EventsField,
     MainField
   },
@@ -21,6 +30,11 @@ export default {
   props: {
     events: {
       type: Array,
+      required: true
+    },
+
+    intro: {
+      type: Object,
       required: true
     }
   }
